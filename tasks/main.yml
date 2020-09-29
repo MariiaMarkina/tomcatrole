@@ -36,6 +36,11 @@
 
   - name: register changes
     shell: . /home/ubuntu/.bashrc
+    
+  - name: add permissions for tomcat webapps directory 
+    file:
+      path: /opt/tomcat/apache-tomcat-8.5.57/webapps
+      mode: '777'
 
   - name: starting tomcat
     shell: $CATALINA_HOME/bin/startup.sh
