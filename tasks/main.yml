@@ -3,30 +3,44 @@
     apt:
       upgrade: yes
       update_cache: yes
-      
+
   - name: Create tomcat directory
     file:
       path: /opt/tomcat
       state: directory
       mode: 777
-      
+
   - name: Unarchive a tomcat file that needs to be downloaded
     unarchive:
       src: http://apache.spinellicreations.com/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz
       dest: /opt/tomcat
       remote_src: yes
-      
+
   - name: Insert/Update block in /home/ubuntu/.bashrc
     blockinfile:
       path: /home/ubuntu/.bashrc
       block: |
         export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-        export CATALINA_HOME=/opt/tomcat/apache-tomcat-8.5.32
+        export CATALINA_HOME=/opt/tomcat/apache-tomcat-8.5.57
+
+  - name: setting java home
+    shell: echo JAVA_HOME is $JAVA_HOME
+    environment:
+      JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
       
+  - name: change tomcat port
+    replace:
+      path: /opt/tomcat/apache-tomcat-8.5.57/conf/server.xml
+      regexp: '<Connector port=\"8080\" protocol="HTTP\/1\.1"'
+      replace: '<Connector port="8070" protocol="HTTP/1.1"'
+
   - name: register changes
     shell: . /home/ubuntu/.bashrc
-    
-  
-    
-  - name: activate Tomcat
+
+  - name: starting tomcat
     shell: $CATALINA_HOME/bin/startup.sh
+    environment:
+      CATALINA_HOME: "/opt/tomcat/apache-tomcat-8.5.57"
+
+
+
