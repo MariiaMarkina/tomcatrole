@@ -42,12 +42,26 @@
       path: /opt/tomcat/apache-tomcat-8.5.57/webapps
       mode: '777'
       
-  - name: add permissions for tomcat bin directory 
+  - name: Copy startup
+    copy:
+      src: /opt/tomcat/apache-tomcat-8.5.57/bin/startup.sh
+      dest: /home/ubuntu/startup.sh
+      owner: ubuntu
+      mode: '777'
+      
+  - name: Copy shutdown
+    copy:
+      src: /opt/tomcat/apache-tomcat-8.5.57/bin/shutdown.sh
+      dest: /home/ubuntu/shutdown.sh
+      owner: ubuntu
+      mode: '777'
+     
+  - name: add permissions for tomcat bin directory 1
     file:
       path: /opt/tomcat/apache-tomcat-8.5.57/bin/startup.sh
       mode: '777'
     
-  - name: add permissions for tomcat bin directory 
+  - name: add permissions for tomcat bin directory 2
     file:
       path: /opt/tomcat/apache-tomcat-8.5.57/bin/shutdown.sh
       mode: '777'
