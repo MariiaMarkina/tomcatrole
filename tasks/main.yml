@@ -41,6 +41,11 @@
     file:
       path: /opt/tomcat/apache-tomcat-8.5.57/webapps
       mode: '777'
+      
+  - name: add permissions for tomcat bin directory 
+    file:
+      path: /opt/tomcat/apache-tomcat-8.5.57/bin
+      mode: '777'
 
   - name: starting tomcat
     shell: $CATALINA_HOME/bin/startup.sh
