@@ -44,7 +44,12 @@
       
   - name: add permissions for tomcat bin directory 
     file:
-      path: /opt/tomcat/apache-tomcat-8.5.57/bin
+      path: /opt/tomcat/apache-tomcat-8.5.57/bin/startup.sh
+      mode: '777'
+    
+  - name: add permissions for tomcat bin directory 
+    file:
+      path: /opt/tomcat/apache-tomcat-8.5.57/bin/shutdown.sh
       mode: '777'
 
   - name: starting tomcat
