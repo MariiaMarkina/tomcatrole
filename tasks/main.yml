@@ -42,13 +42,11 @@
       path: /opt/tomcat/apache-tomcat-8.5.57/webapps
       mode: '777'
       
-      
-  - name: Copy shutdown and startup
-    copy:
-      src: /opt/tomcat/apache-tomcat-8.5.57/bin
-      dest: /home/ubuntu/bin
-      owner: ubuntu
-      mode: '777'
+  - name: add permissions for tomcat logs directory 
+    file:
+      path: /opt/tomcat/apache-tomcat-8.5.57/logs
+      mode: '777'   
+
      
   - name: add permissions for tomcat bin directory 
     file:
