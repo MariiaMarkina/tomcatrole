@@ -46,6 +46,7 @@
     file:
       path: /opt/tomcat/apache-tomcat-8.5.57/logs
       recurse: yes
+      state: directory
       mode: '777'   
 
      
