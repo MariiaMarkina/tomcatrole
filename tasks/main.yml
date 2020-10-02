@@ -52,9 +52,10 @@
      
   - name: add permissions for tomcat bin directory 
     file:
-      path: /opt/tomcat/apache-tomcat-8.5.57
+      path: /opt/tomcat
       recurse: yes
       mode: '777'
+      owner: ubuntu
     
 
   - name: starting tomcat
