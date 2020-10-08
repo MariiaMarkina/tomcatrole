@@ -12,7 +12,7 @@
 
   - name: Unarchive a tomcat file that needs to be downloaded
     unarchive:
-      src: http://apache.spinellicreations.com/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz
+      src: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz
       dest: /opt/tomcat
       remote_src: yes
 
@@ -30,7 +30,7 @@
       
   - name: change tomcat port
     replace:
-      path: /opt/tomcat/apache-tomcat-8.5.57/conf/server.xml
+      path: /opt/tomcat/apache-tomcat-8.5.58/conf/server.xml
       regexp: '<Connector port=\"8080\" protocol="HTTP\/1\.1"'
       replace: '<Connector port="8070" protocol="HTTP/1.1"'
 
