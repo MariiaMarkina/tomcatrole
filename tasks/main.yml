@@ -8,7 +8,7 @@
     file:
       path: /opt/tomcat
       state: directory
-      mode: 777
+      mode: 0777
 
   - name: Unarchive a tomcat file that needs to be downloaded
     unarchive:
@@ -40,20 +40,20 @@
   - name: add permissions for tomcat webapps directory 
     file:
       path: /opt/tomcat/apache-tomcat-8.5.58/webapps
-      mode: '777'
+      mode: '0777'
       
   - name: add permissions for tomcat logs directory 
     file:
       path: /opt/tomcat/apache-tomcat-8.5.58/logs
       recurse: yes
       state: directory
-      mode: '777'   
+      mode: '0777'   
   
   - name: add permissions for tomcat directory 
     file:
       path: /opt/tomcat/bin
       recurse: yes
-      mode: '777'
+      mode: '0777'
       owner: ubuntu 
 
      
@@ -61,7 +61,7 @@
     file:
       path: /opt/tomcat
       recurse: yes
-      mode: '777'
+      mode: '0777'
       owner: ubuntu
     
 
