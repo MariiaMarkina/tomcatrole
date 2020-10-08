@@ -12,7 +12,7 @@
 
   - name: Unarchive a tomcat file that needs to be downloaded
     unarchive:
-      src: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz
+      src: http://apache.spinellicreations.com/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.58.tar.gz
       dest: /opt/tomcat
       remote_src: yes
 
@@ -21,7 +21,7 @@
       path: /home/ubuntu/.bashrc
       block: |
         export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-        export CATALINA_HOME=/opt/tomcat/apache-tomcat-8.5.57
+        export CATALINA_HOME=/opt/tomcat/apache-tomcat-8.5.58
 
   - name: setting java home
     shell: echo JAVA_HOME is $JAVA_HOME
@@ -39,12 +39,12 @@
     
   - name: add permissions for tomcat webapps directory 
     file:
-      path: /opt/tomcat/apache-tomcat-8.5.57/webapps
+      path: /opt/tomcat/apache-tomcat-8.5.58/webapps
       mode: '777'
       
   - name: add permissions for tomcat logs directory 
     file:
-      path: /opt/tomcat/apache-tomcat-8.5.57/logs
+      path: /opt/tomcat/apache-tomcat-8.5.58/logs
       recurse: yes
       state: directory
       mode: '777'   
@@ -68,7 +68,7 @@
   - name: starting tomcat
     shell: $CATALINA_HOME/bin/startup.sh
     environment:
-      CATALINA_HOME: "/opt/tomcat/apache-tomcat-8.5.57"
+      CATALINA_HOME: "/opt/tomcat/apache-tomcat-8.5.58"
 
 
 
