@@ -48,9 +48,16 @@
       recurse: yes
       state: directory
       mode: '777'   
+  
+  - name: add permissions for tomcat directory 
+    file:
+      path: /opt/tomcat/bin
+      recurse: yes
+      mode: '777'
+      owner: ubuntu 
 
      
-  - name: add permissions for tomcat bin directory 
+  - name: add permissions for tomcat directory 
     file:
       path: /opt/tomcat
       recurse: yes
