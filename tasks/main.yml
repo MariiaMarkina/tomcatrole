@@ -12,7 +12,7 @@
 
   - name: Unarchive a tomcat file that needs to be downloaded
     unarchive:
-      src: http://apache.spinellicreations.com/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.58.tar.gz
+      src: http://apache.spinellicreations.com/tomcat/tomcat-8/v8.5.58/bin/apache-tomcat-8.5.58.tar.gz
       dest: /opt/tomcat
       remote_src: yes
 
