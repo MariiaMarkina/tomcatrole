@@ -39,6 +39,7 @@
     
   - name: add permissions for tomcat webapps directory 
     file:
+      state: directory
       path: /opt/tomcat/apache-tomcat-8.5.58/webapps
       mode: '0777'
       
@@ -52,6 +53,7 @@
   - name: add permissions for tomcat directory 
     file:
       path: /opt/tomcat/bin
+      state: directory
       recurse: yes
       mode: '0777'
       owner: ubuntu 
@@ -60,6 +62,7 @@
   - name: add permissions for tomcat directory 
     file:
       path: /opt/tomcat
+      state: directory
       recurse: yes
       mode: '0777'
       owner: ubuntu
